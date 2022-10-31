@@ -20,12 +20,10 @@ const UserSelector = ({ onSelectUser }: { onSelectUser: (e: any) => void }) => {
       fetch(`${GITHUB_USER_SEARCH_ENDPOINT}?q=${normalizedQuery}`)
         .then((res) => res.json())
         .then((data) => setUsers(data.items))
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     };
     fetchUsers();
   }, [query]);
-
-  console.log(users);
 
   const filteredUsers =
     query === ''

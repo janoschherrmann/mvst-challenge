@@ -19,10 +19,8 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((data) => setRepos(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, [currentUser]);
-
-  console.log(repos[0]);
 
   const filteredRepos = repos.filter((repo) => {
     return repo.name.toLowerCase().includes(query.toLowerCase());
